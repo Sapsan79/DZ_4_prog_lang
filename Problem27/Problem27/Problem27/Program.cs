@@ -5,27 +5,22 @@
 
 int n = ReadInt();
 int result = 0;
-GetSumm(ref n, ref result);
+while (n / 10 > 0 || n % 10 > 0)
+{
+    result += n % 10;
+    n /= 10;
+}
 
 Console.WriteLine(result);
 int ReadInt()
 {
-    Console.WriteLine("Enter a number");
+    Console.WriteLine("Введите число: ");
 
     if (int.TryParse(Console.ReadLine(), out int i))
     {
         return i;
     }
-
-    Console.WriteLine("It's not a number");
-
+    Console.WriteLine("Это не число");
     return -1;
 }
-void GetSumm(ref int n, ref int result)
-{
-    while (n / 10 > 0)
-    {
-        result += n % 10;
-        n /= 10;
-    }
-}
+
